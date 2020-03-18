@@ -6,6 +6,12 @@
   margin: 10px 0;
   position: relative;
 
+  label.checkbox-type {
+    &:after {
+      border-radius: 0 !important;
+    }
+  }
+
   label {
     padding: 12px 30px;
     width: 100%;

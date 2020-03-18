@@ -163,6 +163,11 @@ window.printResult = function() {
 
 window.next = function(section) {
   switch (section) {
+    case "section-1":
+      hideSection("conclusion");
+      hideSection("section-5");
+      showSection("section-1");
+      break;
     case "section-2":
       if (!_.has(data, "fever")) {
         alert("Mohon lengkapi jawaban");
