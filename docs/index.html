@@ -3,10 +3,248 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Hello, world!</title>
+    <title>Deteksi Dini COVID-19</title>
   </head>
-<body>
-    <h1>My first Bootstrap - Webpack App!</h1>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h1>Deteksi Dini COVID-19</h1>
+          <p>Berikut ini adalah pertanyaan singkat untuk mengetahui deteksi dini COVID-19?</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <form class="form">
+            <div id="section-1">
+              <p>
+                Apakah Anda sedang deman atau dalam 14 hari terkahir pernah demam?<br/>
+                <small>Gunakan termometer untuk mengukur suhu tubuh Anda</small>
+              </p>
+              <div class="inputGroup">
+                <input id="fever" name="fever" type="radio" onchange="inputChanged(this)"/>
+                <label for="fever">Iya - <small>Suhu tubuh &#8805 38<sup>o</sup>C</small></label>
+              </div>
+              <div class="inputGroup">
+                <input id="no_fever" name="fever" type="radio" onchange="inputChanged(this)"/>
+                <label for="no_fever">Tidak - <small>Suhu tubuh &lt; 38<sup>o</sup>C</small></label>
+              </div>
+              <div class="text-center"><small>1 of 5</small></div>
+              <div class="text-right">
+                <a href="#" class="btn btn-primary pull-right" onclick="next('section-2')">Next</a>
+              </div>
+            </div>
+            <div id="section-2">
+              <p>
+                Apakah Anda memiliki gejala pernapasan di bawah ini?<br/>
+                <small>Bisa lebih dari satu gejala pernapasan</small>
+              </p>
+
+              <div class="inputGroup">
+                <input id="cough" name="cough" type="checkbox" onchange="inputChanged(this)"/>
+                <label for="cough">Batuk</label>
+              </div>
+              <div class="inputGroup">
+                <input id="cold" name="cold" type="checkbox" onchange="inputChanged(this)"/>
+                <label for="cold">Pilek</label>
+              </div>
+              <div class="inputGroup">
+                <input id="sore_throat" name="sore_throat" type="checkbox" onchange="inputChanged(this)"/>
+                <label for="sore_throat">Sakit tenggorokan</label>
+              </div>
+              <div class="inputGroup">
+                <input id="breath_problem" name="breath_problem" type="checkbox" onchange="inputChanged(this)"/>
+                <label for="breath_problem">Sesak napas</label>
+              </div>
+              <p class="text-right"><small><b><i>lanjutkan pertanyaan jika tidak ada gejala apapun</i></b></small></p>
+              <div id="section-2-1">
+                <p>
+                  Apakah Anda yakin gejala di atas bukan gejala alergi yang biasa dialami?
+                </p>
+                <div class="inputGroup">
+                  <input id="sure" name="sure" type="radio" onchange="inputChanged(this)"/>
+                  <label for="sure">Yakin - <small>Gejala pernapasan ini berbeda, belum pernah saya alami</small></label>
+                </div>
+                <div class="inputGroup">
+                  <input id="not_sure" name="sure" type="radio" onchange="inputChanged(this)"/>
+                  <label for="not_sure">Tidak Yakin - <small>Saya ragu dengan gejala pernapasan ini</small></label>
+                </div>
+              </div>
+              <div class="text-center"><small>2 of 5</small></div>
+              <div class="text-right">
+                <a href="#" class="btn btn-primary pull-left" onclick="prev('section-1')">Prev</a>
+                <a href="#" class="btn btn-primary pull-right" onclick="next('section-3')">Next</a>
+              </div>
+            </div>
+            <div id="section-3">
+              <p>
+                Apakah dalam 14 hari terakhir sebelum timbul gejala pernah ke luar negeri yang memiliki transmisi lokal COVID-19?<br/>
+                <small>China, Malaysia, Singapura, Jepang, Korea Selatan dll - <a target="_blank" href="https://www.worldometers.info/coronavirus/countries-where-coronavirus-has-spread/">daftar negara terpapar</a></small>
+              </p>
+              <div class="inputGroup">
+                <input id="abroad" name="abroad" type="radio" onchange="inputChanged(this)"/>
+                <label for="abroad">Iya - <small>Saya mengunjungi negara tersebut</small></label>
+              </div>
+              <div class="inputGroup">
+                <input id="not_abroad" name="abroad" type="radio" onchange="inputChanged(this)"/>
+                <label for="not_abroad">Tidak - <small>Saya selalu tinggal di Indonesia</small></label>
+              </div>
+              <div class="text-center"><small>3 of 5</small></div>
+              <div class="text-right">
+                <a href="#" class="btn btn-primary pull-left" onclick="prev('section-2')">Prev</a>
+                <a href="#" class="btn btn-primary pull-right" onclick="next('section-4')">Next</a>
+              </div>
+            </div>
+            <div id="section-4">
+              <p>
+                Apakah dalam 14 hari terakhir sebelum timbul gejala pernah ke kota di Indonesia yang memiliki transmisi lokal COVID-19?<br/>
+                <small>Jakarta, Depok, Bandung, Solo, Bogor, Bali, Semarang dll - <a target="_blank" href="https://kawalcovid19.blob.core.windows.net/viz/statistik_harian.html">daftar kota terpapar</a></small>
+              </p>
+              <div class="inputGroup">
+                <input id="visiting" name="visiting" type="radio" onchange="inputChanged(this)"/>
+                <label for="visiting">Iya - <small>Saya tinggal atau mengunjungi kota tersebut</small></label>
+              </div>
+              <div class="inputGroup">
+                <input id="not_visiting" name="visiting" type="radio" onchange="inputChanged(this)"/>
+                <label for="not_visiting">Tidak - <small>Saya tidak tinggal dan mengunjungi kota tersebut</small></label>
+              </div>
+              <div class="text-center"><small>4 of 5</small></div>
+              <div class="text-right">
+                <a href="#" class="btn btn-primary pull-left" onclick="prev('section-3')">Prev</a>
+                <a href="#" class="btn btn-primary pull-right" onclick="next('section-5')">Next</a>
+              </div>
+            </div>
+            <div id="section-5">
+              <p>
+                Apakah Anda pernah kontak erat dengan kasus konfirmasi COVID-19 atau mengunjungi fasilitas kesehatan yang berhubungan dengan pasien konfirmasi COVID-19?<br/>
+                <small>Fasilitas kesehatan seperti pada <a target="_blank" href="./files/132_RS_Rujukan_PIE_Edit_Final_SK_MK_2.pdf">daftar RS rujukan COVID-19</a></small>
+              </p>
+              <div class="inputGroup">
+                <input id="contact" name="contact" type="radio" onchange="inputChanged(this)"/>
+                <label for="contact">Iya - <small>Saya pernah kontak dengan COVID-19 confirmed</small></label>
+              </div>
+              <div class="inputGroup">
+                <input id="not_contact" name="contact" type="radio" onchange="inputChanged(this)"/>
+                <label for="not_contact">Tidak - <small>Saya tidak pernah kontak dengan COVID-19 confirmed</small></label>
+              </div>
+              <div class="text-center"><small>5 of 5</small></div>
+              <div class="text-right">
+                <a href="#" class="btn btn-primary pull-left" onclick="prev('section-4')">Prev</a>
+                <a href="#" class="btn btn-info pull-right" onclick="diagnose()">Submit</a>
+              </div>
+            </div>
+            <div id="conclusion">
+              <div id="unsure" class="card" style="width: 38rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Anda butuh konsultasi</h5>
+                  <hr/>
+                  <small>
+                    Anda masih belum yakin atas gejala yang Anda alami. Anda dapat berkunjung ke fasilitas kesehatan terdekat untuk melakukan konfirmasi penyebab lain atas gejala yang Anda alami. Gejala pernapasan <u><b>tidak hanya</b></u> muncul karena COVID-19, bisa saja terjadi karena penyakit atau alergi lainnya. Sikapi terus perkembangan tubuh Anda.
+                  </small>
+                </div>
+              </div>
+              <div id="pdp_1" class="card" style="width: 38rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Anda harus dirawat dan diawasi</h5>
+                  <hr/>
+                  <small>
+                    Anda memiliki <u><b>gejala lengkap</b></u> yang mirip terjadi pada wabah COVID-19 dan Anda pernah mengunjungi daerah transmisi lokal persebaran COVID-19. <u><b>Kemungkinan besar</b></u> Anda terpapar virus SARS-Cov-2. Segera isolasi diri Anda dan kunjungi <a target="_blank" href="./files/132_RS_Rujukan_PIE_Edit_Final_SK_MK_2.pdf">RS Rujukan COVID-19</a>.
+                  </small>
+                </div>
+              </div>
+              <div id="pdp_2" class="card" style="width: 38rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Anda butuh dirawat dan diawasi</h5>
+                  <hr/>
+                  <small>
+                    Anda memiliki <u><b>gejala yang mirip</b></u> terjadi pada wabah COVID-19 dan Anda pernah mengunjungi daerah transmisi lokal persebaran COVID-19 atau pernah kontak erat dengan kasus konfirmasi atau mengunjungi fasilitas kesehatan kasus COVID-19. <u><b>Kemungkinan besar</b></u> Anda terpapar virus SARS-Cov-2. Segera isolasi diri Anda dan kunjungi <a target="_blank" href="./files/132_RS_Rujukan_PIE_Edit_Final_SK_MK_2.pdf">RS Rujukan COVID-19</a>.
+                  </small>
+                </div>
+              </div>
+              <div id="odp_1" class="card" style="width: 38rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Anda perlu dipantau</h5>
+                  <hr/>
+                  <small>
+                    Anda memiliki gejala yang mirip terjadi pada wabah COVID-19 dan Anda pernah mengunjungi daerah transmisi lokal persebaran COVID-19. Ada kemungkinan Anda terpapar virus SARS-Cov-2 namun bisa jadi <u>tidak</u>. Pantau terus perkembangan tubuh Anda.
+                    <ol>
+                      <li>
+                        Jika dalam 14 hari Anda mengalami <b>sesak napas</b> kemungkinan besar Anda terkena COVID-19. Segera isolasi diri Anda dan kunjungi <a target="_blank" href="./files/132_RS_Rujukan_PIE_Edit_Final_SK_MK_2.pdf">RS Rujukan COVID-19</a>.
+                      </li>
+                      <li>
+                        Namun jika dalam 14 hari gejala pernapasan atau demam Anda membaik. Jangan khawatir kemungkinan Anda terkena penyakit pada umumnya.
+                      </li>
+                    </ol>
+                  </small>
+                </div>
+              </div>
+              <div id="odp_2" class="card" style="width: 38rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Anda perlu dipantau</h5>
+                  <hr/>
+                  <small>
+                    Jika Anda pernah mengunjungi daerah transmisi lokal persebaran COVID-19 atau pernah kontak erat dengan kasus konfirmasi atau mengunjungi fasilitas kesehatan kasus COVID-19. Ada kemungkinan Anda terpapar virus SARS-Cov-2 namun bisa jadi <u>tidak</u>. Pantau terus perkembangan tubuh Anda.
+                    <ol>
+                      <li>
+                        Jika dalam 14 hari Anda mengalami <b>demam</b>, <b>gejala pernapasan</b> atau <b>sesak napas</b> kemungkinan besar Anda terkena COVID-19. Segera isolasi diri Anda dan kunjungi <a target="_blank" href="./files/132_RS_Rujukan_PIE_Edit_Final_SK_MK_2.pdf">RS Rujukan COVID-19</a>.
+                      </li>
+                      <li>
+                        Namun jika dalam 14 hari tidak ada gejala apapun. Jangan khawatir kemungkinan Anda tidak terpapar.
+                      </li>
+                    </ol>
+                  </small>
+                </div>
+              </div>
+              <div id="none" class="card" style="width: 38rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Anda cukup sehat</h5>
+                  <hr/>
+                  <small>
+                    Anda tidak ada gejala kelainan berat apapun. Begitu pula tidak ada kondisi yang menyebabkan Anda perlu dipantau perkembangan kesehatannya akibat wabah COVID-19. Lakukan selalu <i>social distancing</i> dan jaga selalu kebersihan tangan, tempat sekitar dan makanan yang Anda makan.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Deteksi</h5>
+              <hr/>
+              <div id="label-fever" class="span"><small>Ada riwayat demam:</small> <b id="data-fever"></b><hr/></div>
+              <div id="label-symptoms" class="span"><small>Terdapat gejala pernapasan:</small> <b id="data-symptoms"></b><hr/></div>
+              <div id="label-abroad" class="span"><small>Kunjungan ke wilayah negara persebaran COVID-19:</small> <b id="data-abroad"></b><hr/></div>
+              <div id="label-visiting" class="span"><small>Kunjungan ke wilayah kota persebaran COVID-19:</small> <b id="data-visiting"></b><hr/></div>
+              <div id="label-contact" class="span"><small>Ada riwayat kontak dengan kasus konfirmasi atau mengunjungi fasilitas kesehatan kasus COVID-19:</small> <b id="data-contact"></b><hr/></div>
+              <div id="label-result" class="span"><small>Kesimpulan:</small> <b id="data-result"></b><hr/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="warning" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Perhatian</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Pilih salah satu
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <!-- Bundled File -->
     <script src="./bundle.js"></script>
   </body>
