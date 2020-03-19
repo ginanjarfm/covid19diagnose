@@ -63,7 +63,7 @@
                 </p>
                 <div class="inputGroup">
                   <input id="sure" name="sure" type="radio" onchange="inputChanged(this)"/>
-                  <label for="sure">Yakin - <small>Gejala pernapasan ini berbeda, belum pernah saya alami</small></label>
+                  <label for="sure">Yakin - <small>Saya yakin tahu perbedaan gejala pernapasan ini</small></label>
                 </div>
                 <div class="inputGroup">
                   <input id="not_sure" name="sure" type="radio" onchange="inputChanged(this)"/>
@@ -134,36 +134,51 @@
               </div>
             </div>
             <div id="conclusion">
-              <div id="unsure" class="card" style="width: 38rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Anda butuh konsultasi</h5>
-                  <hr/>
-                  <small>
-                    Anda masih belum yakin atas gejala yang Anda alami. Anda dapat berkunjung ke fasilitas kesehatan terdekat untuk melakukan konfirmasi penyebab lain atas gejala yang Anda alami. Gejala pernapasan <u><b>tidak hanya</b></u> muncul karena COVID-19, bisa saja terjadi karena penyakit atau alergi lainnya. Sikapi terus perkembangan tubuh Anda.
-                  </small>
+              <div id="unsure">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Anda butuh konsultasi</h5>
+                    <hr/>
+                    <small>
+                      Anda masih belum yakin atas gejala yang Anda alami. Anda dapat berkunjung ke fasilitas kesehatan terdekat untuk melakukan konfirmasi penyebab lain atas gejala yang Anda alami. Gejala pernapasan <u><b>tidak hanya</b></u> muncul karena COVID-19, bisa saja terjadi karena penyakit atau alergi lainnya. Sikapi terus perkembangan tubuh Anda.
+                    </small>
+                    <hr/>
+                    <a href="#" class="btn btn-info" onclick="next('section-1')">Ubah Jawaban</a>
+                  </div>
+                </div>
+                <hr/>
+                <h5 class="text-center">Perbedaan pilek, flu, alergi dan COVID-19</h5>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <img src="files/Web_MD_Symptoms.png" class="img-responsive"/>
+                  </div>
                 </div>
               </div>
-              <div id="pdp_1" class="card" style="width: 38rem;">
+              <div id="pdp_1" class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Anda harus dirawat dan diawasi</h5>
+                  <h5 class="card-title">[PDP] Anda harus dirawat dan diawasi</h5>
                   <hr/>
                   <small>
                     Anda memiliki <u><b>gejala lengkap</b></u> yang mirip terjadi pada wabah COVID-19 dan Anda pernah mengunjungi daerah transmisi lokal persebaran COVID-19. <u><b>Kemungkinan besar</b></u> Anda terpapar virus SARS-Cov-2. Segera isolasi diri Anda dan kunjungi <a target="_blank" href="./files/132_RS_Rujukan_PIE_Edit_Final_SK_MK_2.pdf">RS Rujukan COVID-19</a>.
                   </small>
+                  <hr/>
+                  <a href="#" class="btn btn-info" onclick="next('section-1')">Ubah Jawaban</a>
                 </div>
               </div>
-              <div id="pdp_2" class="card" style="width: 38rem;">
+              <div id="pdp_2" class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Anda butuh dirawat dan diawasi</h5>
+                  <h5 class="card-title">[PDP] Anda butuh dirawat dan diawasi</h5>
                   <hr/>
                   <small>
                     Anda memiliki <u><b>gejala yang mirip</b></u> terjadi pada wabah COVID-19 dan Anda pernah mengunjungi daerah transmisi lokal persebaran COVID-19 atau pernah kontak erat dengan kasus konfirmasi atau mengunjungi fasilitas kesehatan kasus COVID-19. <u><b>Kemungkinan besar</b></u> Anda terpapar virus SARS-Cov-2. Segera isolasi diri Anda dan kunjungi <a target="_blank" href="./files/132_RS_Rujukan_PIE_Edit_Final_SK_MK_2.pdf">RS Rujukan COVID-19</a>.
                   </small>
+                  <hr/>
+                  <a href="#" class="btn btn-info" onclick="next('section-1')">Ubah Jawaban</a>
                 </div>
               </div>
-              <div id="odp_1" class="card" style="width: 38rem;">
+              <div id="odp_1" class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Anda perlu dipantau</h5>
+                  <h5 class="card-title">[ODP] Anda perlu dipantau</h5>
                   <hr/>
                   <small>
                     Anda memiliki gejala yang mirip terjadi pada wabah COVID-19 dan Anda pernah mengunjungi daerah transmisi lokal persebaran COVID-19. Ada kemungkinan Anda terpapar virus SARS-Cov-2 namun bisa jadi <u>tidak</u>. Pantau terus perkembangan tubuh Anda.
@@ -176,11 +191,13 @@
                       </li>
                     </ol>
                   </small>
+                  <hr/>
+                  <a href="#" class="btn btn-info" onclick="next('section-1')">Ubah Jawaban</a>
                 </div>
               </div>
-              <div id="odp_2" class="card" style="width: 38rem;">
+              <div id="odp_2" class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Anda perlu dipantau</h5>
+                  <h5 class="card-title">[ODP] Anda perlu dipantau</h5>
                   <hr/>
                   <small>
                     Jika Anda pernah mengunjungi daerah transmisi lokal persebaran COVID-19 atau pernah kontak erat dengan kasus konfirmasi atau mengunjungi fasilitas kesehatan kasus COVID-19. Ada kemungkinan Anda terpapar virus SARS-Cov-2 namun bisa jadi <u>tidak</u>. Pantau terus perkembangan tubuh Anda.
@@ -193,18 +210,21 @@
                       </li>
                     </ol>
                   </small>
+                  <hr/>
+                  <a href="#" class="btn btn-info" onclick="next('section-1')">Ubah Jawaban</a>
                 </div>
               </div>
-              <div id="none" class="card" style="width: 38rem;">
+              <div id="none" class="card">
                 <div class="card-body">
                   <h5 class="card-title">Anda cukup sehat</h5>
                   <hr/>
                   <small>
                     Anda tidak ada gejala kelainan berat apapun. Begitu pula tidak ada kondisi yang menyebabkan Anda perlu dipantau perkembangan kesehatannya akibat wabah COVID-19. Lakukan selalu <i>social distancing</i> dan jaga selalu kebersihan tangan, tempat sekitar dan makanan yang Anda makan.
                   </small>
+                  <hr/>
+                  <a href="#" class="btn btn-info" onclick="next('section-1')">Ubah Jawaban</a>
                 </div>
               </div>
-              <a href="#" class="btn btn-info pull-right" onclick="next('section-1')">Ubah Jawaban</a>
             </div>
           </form>
         </div>
