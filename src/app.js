@@ -1,9 +1,27 @@
 import 'bootstrap';
 import _ from 'lodash';
 import './scss/app.scss';
+import * as firebase from 'firebase/app';
+import 'firebase/analytics';
+import 'firebase/firestore';
 
 window.data = {};
 window.result = {};
+
+var firebaseConfig = {
+  apiKey: "AIzaSyD8q0BBbsKju7ut0gR_ndMtj4_5swgHzyo",
+  authDomain: "covid-19-detection.firebaseapp.com",
+  databaseURL: "https://covid-19-detection.firebaseio.com",
+  projectId: "covid-19-detection",
+  storageBucket: "covid-19-detection.appspot.com",
+  messagingSenderId: "327301492994",
+  appId: "1:327301492994:web:045e19d0814056b92f921b",
+  measurementId: "G-K69Q7T3PSZ"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+window.analytics = firebase.analytics();
+window.db = firebase.firestore();
 
 window.inputChanged = function(el) {
   switch (el.id) {
@@ -70,6 +88,7 @@ window.viewSection = function() {
     hideSection("label-result");
 
     hideSection("conclusion");
+    showSection("container");
   }
 
   if (data.cough || data.cold || data.sore_throat || data.breath_problem) {
@@ -117,10 +136,10 @@ window.showResult = function() {
   const pdp_1 = data.fever && hasSymptoms && data.breath_problem && hasVisit;
   const pdp_2 = (data.fever || hasSymptoms) && data.contact;
   const odp_1 = (data.fever || hasSymptoms) && hasVisit;
-  const odp_2 = hasVisit || data.contact;
+  const odp_2 = data.contact;
 
   hideAllResult();
-  if (_.has(data, "sure") && !data.sure) {
+  if (_.has(data, "sure") && !data.sure && (hasSymptoms || data.breath_problem)) {
     showSection("unsure");
     result = "unsure";
   } else  {
@@ -162,6 +181,9 @@ window.printResult = function() {
 }
 
 window.next = function(section) {
+  analytics.logEvent('next', {
+    section: section
+  })
   switch (section) {
     case "section-1":
       hideSection("conclusion");
@@ -206,6 +228,9 @@ window.next = function(section) {
 }
 
 window.prev = function(section) {
+  analytics.logEvent('prev', {
+    section: section
+  })
   switch (section) {
     case "section-1":
       hideSection("section-2");
@@ -227,6 +252,14 @@ window.prev = function(section) {
 }
 
 window.diagnose = function() {
+  let submit = {
+    data: data,
+    diagnose: {
+      result: result
+    }
+  }
+  analytics.logEvent('diagnose', submit);
+  db.collection("data").add(submit);
   showSection("conclusion");
   hideSection("section-5");
 }

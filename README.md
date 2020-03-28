@@ -1,4 +1,4 @@
-# Test Case Metrics Analyzer
+# Selft Detection COVID-19
 
 ## Installation
 
